@@ -1,0 +1,203 @@
+html {
+    position: relative;
+}
+
+body {
+    margin-top: 35px;
+    margin-bottom: 100px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.jumbotron {
+    height: 420px;
+    background-image: url(../Image/Header-bg.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: 0 -150px;
+    color: #eaeaea;
+    overflow: hidden;
+}
+
+.jumbotron img {
+    width: 200px;
+    border: 3px solid #888;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .9);
+}
+
+.jumbotron h1, .jumbotron p {
+    text-shadow: 5px 5px 10px rgba( 0, 0, 0, .9);
+}
+
+hr {
+    width: 250px;
+    border-top: 3px solid #999;
+}
+
+section {
+    min-height: 600px;
+}
+
+.pLeft, .pRight {
+    opacity: 0;
+    transform: translate(-50px, 0) rotate(15deg);
+    transition: 1s;
+}
+
+.pRight {
+    transform: translate(50px, 0) rotate(-15deg);
+}
+
+.pLeft.pReveal, .pRight.pReveal {
+    opacity: 1;
+    transform: translate(0,0);
+}
+
+.portfolio {
+    background-color: #eee;
+}
+
+.portfolio .thumbnail {
+    opacity: 0;
+    transform: translate(0, -40px);
+    transition: .9s;
+}
+
+.portfolio .thumbnail.fade {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.overlay {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0);
+    z-index: 9999;
+    transition: .9s;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.overlay:target {
+    width: auto;
+    height: auto;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .6);
+}
+
+.overlay img {
+    max-height: 100%;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, .5);
+    border-radius: 10px;
+}
+
+.overlay .close {
+    position: absolute;
+    top: 68px;
+    left: 48%;
+    margin-top: -10px;
+    color: #eaeaea;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, .3);
+    /* border: 1px solid black; */
+    line-height: 28px;
+    border-radius: 20px 20px 20px 20px;
+    padding: 7px;
+    opacity: 0;
+}
+
+.overlay:target .close {
+    animation: slideDownFade .5s .5s forwards;
+}
+
+.overlay:target img {
+    animation: justFade 1s;
+}
+
+.overlay:target .next,
+.overlay:target .prev {
+    animation: justFade .5s .5s forwards;
+}
+
+.next,
+.prev {
+    width: 90px;
+    height: 50px;
+    background-image: url(../Image/Next.png);
+    position: absolute;
+    top: 48%;
+    margin-left: 40px;
+    opacity: 0;
+}
+
+.prev {
+    background-image: url(../Image/Prev.png);
+    margin-left: -130px;
+}
+
+.contact {
+    min-height: 800px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #333;
+    padding-top: 40px;
+}
+
+footer p {
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+.glyphicon{
+    color: salmon;
+}
+
+footer .sosmed {
+    margin: auto 10px;
+}
+
+.sosmed img {
+    margin: auto 10px;
+}
+
+@keyframes justFade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDownFade {
+    0% {
+        opacity: 0;
+        margin-top: -20px;
+    }
+
+    100% {
+        opacity: 1;
+        margin-top: -10px;
+    }
+}
+
+@media (max-width: 800px) {
+    .overlay {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .sosmed {
+        display: none;
+    }
+}
